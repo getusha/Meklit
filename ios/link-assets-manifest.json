@@ -1,0 +1,21 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/adwa.ttf",
+      "sha1": "48daa900818c7af8298f468fff93ce355dea873a"
+    },
+    {
+      "path": "assets/fonts/meaza.ttf",
+      "sha1": "c35f367ea8c670d5dd549f1a72824d7870325e71"
+    },
+    {
+      "path": "assets/fonts/sadis.ttf",
+      "sha1": "825dc53cba0669fe56b028dfbce7e3a8e95c16fa"
+    },
+    {
+      "path": "assets/fonts/shiromeda.ttf",
+      "sha1": "7bb6c4bbc24e14bf4e3d0dbc956564ffa00ec9ed"
+    }
+  ]
+}
