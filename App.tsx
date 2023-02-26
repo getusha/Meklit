@@ -51,7 +51,7 @@ export default App;
 const styles = StyleSheet.create({
   topHeader: {
     minHeight: 35,
-    maxHeight: 40,
+    maxHeight: 45,
     backgroundColor: colors.primaryBlue,
     color: colors.primaryLight,
     padding: 0
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   topHeaderTitle: {
     color: colors.primaryLight,
     fontFamily: "shiromeda",
-    fontSize: 17,
+    fontSize: 20,
     marginRight: "auto",
     marginHorizontal: 10,
     marginTop: "auto",

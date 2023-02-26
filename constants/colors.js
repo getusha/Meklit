@@ -7,7 +7,8 @@ const colors = {
     secondaryGreen: "#9EE47C",
     secondaryPurple: "#DB9CFD",
     secondaryLight: "#F6F6F6",
-    secondaryDark: "#3d4144"
+    secondaryDark: "#3d4144",
+    primaryGray: "#e2e2e2",
 }
 
 export default colors;
