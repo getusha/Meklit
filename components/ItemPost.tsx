@@ -1,12 +1,15 @@
-import { Button, ButtonGroup, Layout } from "@ui-kitten/components";
-import React from "react";
+import { ButtonGroup, Layout } from "@ui-kitten/components";
+import React, { useState } from "react";
 import { Image, ImageURISource, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 // import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import { Icon } from "@ui-kitten/components";
+import * as IIcon from "react-native-vector-icons/Ionicons";
 import colors from "../constants/colors";
 import Badge from "../UI/Badge";
 import User from "./User";
 import meklit from "../assets/images/meklit.png";
+import Button from "../UI/Button";
+import ToggleButton from "../UI/ToggleButton";
 
 type ItemPostPropTypes = {
     item: {
@@ -22,6 +25,9 @@ type ItemPostPropTypes = {
 }
 
 export default function ItemPost({ item, user }: ItemPostPropTypes) {
+    const [likedPost, setLikedPost] = useState<boolean>(false);
+    const [disLikedPost, setDisLikedPost] = useState<boolean>(false);
+
     return (
         <React.Fragment>
             <Layout style={styles.itemContainerCard}>
@@ -43,28 +49,35 @@ export default function ItemPost({ item, user }: ItemPostPropTypes) {
                         })}
                     </View>
 
-                    <Layout style={{ display: "flex", flexDirection: "row", alignContent: "space-between" }}>
+                    <Layout style={{ display: "flex", flexDirection: "row", alignContent: "space-between", marginTop: 20 }}>
                         {/* <ButtonGroup appearance="filled" size="medium" style={{ display: "flex", justifyContent: "space-between", marginTop: 10, width: "100%" }}> */}
                         <View style={{ width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
 
-                            <TouchableOpacity>
-                                <Image style={{ height: 30, width: 30, marginTop: "auto", marginBottom: "auto", backgroundColor: colors.primaryLight, borderRadius: 100 }} source={meklit} />
-                            </TouchableOpacity>
-                            <Button appearance="ghost" >
-                                {""}
-                                {/* {() =>
-                                    <Layout style={{ display: "flex", flexDirection: "row", alignContent: "center", alignItems: "center" }}>
-                                        <Icon size={17} name="heart-outline" />
-                                    </Layout>
-                                } */}
-                            </Button>
-                            <Button
-                                accessoryRight={<Icon size={20} name="arrowhead-right-outline" />}
-                                appearance="ghost"
-                                size="medium"
-                            >
-                                {() => <Text style={{ fontFamily: "sadis", fontSize: 20 }}>እንቀያየር</Text>}
-                            </Button>
+                            <ToggleButton
+                                title="112"
+                                icon="heart-outline"
+                                successColor={colors.primaryRed}
+                                successIcon="heart"
+                                turnedOn={likedPost}
+                                onPress={() => {
+                                    setDisLikedPost(false)
+                                    setLikedPost(true)
+                                }}
+                            />
+
+                            <ToggleButton
+                                title="112"
+                                icon="ios-thumbs-down-sharp"
+                                successColor={colors.primaryBlue}
+                                successIcon="ios-thumbs-down-sharp"
+                                turnedOn={disLikedPost}
+                                onPress={() => {
+                                    setLikedPost(false)
+                                    setDisLikedPost(true)
+                                }}
+                            />
+
+                            <Button title="እንቀያየር" />
                         </View>
                         {/* </ButtonGroup> */}
                     </Layout>
