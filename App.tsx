@@ -15,7 +15,7 @@ function App(): JSX.Element {
 
   useEffect(() => {
     SplashScreen.hide();
-  }, [])
+  }, []);
 
   return (
     <React.Fragment>

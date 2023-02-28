@@ -9,6 +9,7 @@ const colors = {
     secondaryLight: "#F6F6F6",
     secondaryDark: "#3d4144",
     primaryGray: "#e2e2e2",
+    secondaryGray: "#cecece"
 }
 
 export default colors;
