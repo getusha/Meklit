@@ -1,12 +1,12 @@
 const NAV_MENUS = [
     {
         title: "መክሊት",
-        icon: "home",
+        icon: "ios-home-sharp",
         navTo: "HomeScreen"
     },
     {
         title: "እቃዎቼ",
-        icon: "fruit-grapes",
+        icon: "lightbulb-group",
         navTo: "HomeScreen"
     },
     {
