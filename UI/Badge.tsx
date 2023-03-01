@@ -7,11 +7,11 @@ export default function Badge(props: { title: string, icon?: string, theme?: "re
         <View style={
             [styles.badge,
             props.theme ?
-                // sorry fellow developers it's fun at the moment
+                // sorry fellow developers it was fun nesting this at the moment
                 (props.theme === "green" ? styles.badgeGreenTheme :
                     (props.theme === "yellow" ? styles.badgeOrangeTheme :
                         (props.theme === "red" ? styles.badgeRedTheme :
-                            (props.theme === "notheme" ? undefined : undefined)))) : styles.badgeDefaultTheme]}
+                            (props.theme === "notheme" && {})))) : styles.badgeDefaultTheme]}
         >
             <Icon name={props.icon ?? "tag"} color={colors.primaryRed} />
             <Text style={styles.badgeText}>{props.title}</Text>
