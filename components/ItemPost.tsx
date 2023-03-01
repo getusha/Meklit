@@ -34,19 +34,20 @@ export default function ItemPost({ item, user }: ItemPostPropTypes) {
                 <Layout style={styles.itemContainerLayout}>
                     <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
                         <User userAvatar={user.avatar} userName={user.name} />
-                    </View>
-
-                    <View style={{ marginTop: 10 }}>
-                        <Text style={styles.itemTitleText}>{item.title}</Text>
+                        <Badge icon="car" theme="notheme" title={"የሚሸጥ"} />
                     </View>
 
                     <Layout style={styles.itemImageContainer}>
                         <Image style={styles.itemImage} source={{ uri: item.image }} />
                     </Layout>
+
                     <View style={styles.badgeContainer}>
                         {item.labels.map((label) => {
                             return <Badge title={label} />
                         })}
+                    </View>
+                    <View style={{ marginTop: 10 }}>
+                        <Text style={styles.itemTitleText}>{item.title}</Text>
                     </View>
 
                     <Layout style={{ display: "flex", flexDirection: "row", alignContent: "space-between", marginTop: 20 }}>
@@ -61,7 +62,7 @@ export default function ItemPost({ item, user }: ItemPostPropTypes) {
                                 turnedOn={likedPost}
                                 onPress={() => {
                                     setDisLikedPost(false)
-                                    setLikedPost(true)
+                                    setLikedPost(!likedPost)
                                 }}
                             />
 
@@ -73,7 +74,7 @@ export default function ItemPost({ item, user }: ItemPostPropTypes) {
                                 turnedOn={disLikedPost}
                                 onPress={() => {
                                     setLikedPost(false)
-                                    setDisLikedPost(true)
+                                    setDisLikedPost(!disLikedPost)
                                 }}
                             />
 
@@ -99,9 +100,9 @@ const styles = StyleSheet.create({
     itemContainerCard: {
         elevation: 0,
         borderWidth: 0,
-        paddingHorizontal: 5,
+        paddingHorizontal: 10,
         paddingVertical: 5,
-        margin: 10,
+        marginVertical: 10,
         borderRadius: 5
     },
 
