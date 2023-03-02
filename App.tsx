@@ -1,48 +1,48 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { StatusBar, StyleSheet, Text, View } from "react-native";
+import React, { useEffect } from 'react';
+import { StatusBar, StyleSheet } from "react-native";
 import * as eva from "@eva-design/eva";
-import { ApplicationProvider, TopNavigation, Layout, IconRegistry, Button } from "@ui-kitten/components";
+import { ApplicationProvider, TopNavigation, IconRegistry } from "@ui-kitten/components";
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 import HomeScreen from "./screens/HomeScreen";
 import colors from "./constants/colors";
-import { FilterContext } from "./contexts/Contexts";
 import SplashScreen from "react-native-splash-screen";
-import { Image } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
-import logo from "./assets/images/logo.png";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import MyPostsScreen from "./screens/MyPostsScreen";
+import { navigationRef } from "./navigation/root";
+import BottomNavigation from "./components/BottomNavigation/BottomNavigation";
+import HeaderTitle from "./components/HeaderTitle";
+
+const Stack = createNativeStackNavigator();
+
 
 function App(): JSX.Element {
 
-  useEffect(() => {
-    SplashScreen.hide();
-  }, []);
+  useEffect(() => SplashScreen.hide(), []);
 
   return (
-    <React.Fragment>
+    <NavigationContainer ref={navigationRef}>
       <IconRegistry icons={EvaIconsPack} />
-      <StatusBar backgroundColor={colors.primaryBlue} />
-      <ApplicationProvider {...eva} theme={eva.light}>
+      <StatusBar backgroundColor={colors.primaryBlue}/>
+      <ApplicationProvider
+        {...eva} theme={eva.light}
+      >
         <TopNavigation
           style={styles.topHeader}
           alignment="center"
-          accessoryLeft={
-            <View style={{ display: "flex", flexDirection: "row" }}>
-              <Image style={{ height: 30, width: 30, marginTop: "auto", marginBottom: "auto", backgroundColor: colors.primaryLight, borderRadius: 100 }} source={logo} />
-              <Text style={styles.topHeaderTitle}>መክሊት</Text>
-            </View>
-          }
-          accessoryRight={
-            <Button size="giant" appearance="ghost">
-              {() => <Icon size={20} color={colors.primaryLight} name="settings-sharp" />}
-            </Button>
-          }
+          accessoryLeft={<HeaderTitle />}
+          accessoryRight={<Icon size={20} color={colors.primaryLight} name="settings-sharp" />}
         />
-        <Layout>
-          {/* <FilterSelector /> */}
-          <HomeScreen />
-        </Layout>
+        <Stack.Navigator screenOptions={{
+          headerShown: false, animation: "fade"
+        }}>
+          <Stack.Screen name="HomeScreen" component={HomeScreen} />
+          <Stack.Screen name="MyPostsScreen" component={MyPostsScreen} />
+        </Stack.Navigator>
+        <BottomNavigation />
       </ApplicationProvider>
-    </React.Fragment>
+    </NavigationContainer>
   )
 }
 
@@ -57,13 +57,4 @@ const styles = StyleSheet.create({
     padding: 0
   },
 
-  topHeaderTitle: {
-    color: colors.primaryLight,
-    fontFamily: "shiromeda",
-    fontSize: 20,
-    marginRight: "auto",
-    marginHorizontal: 10,
-    marginTop: "auto",
-    marginBottom: "auto"
-  }
 })
