@@ -5,11 +5,11 @@ import * as MIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import colors from "../../constants/colors";
 import { NAV_MENUS } from "../../constants/CONST";
 
-const BOTTOM_NAV_MENUS = ["መክሊት", "እቃዎቼ", "", "መልዕክት", "አሰሚ"];
-const BOTTOM_NAV_CHILDS = ["home", "fruit-grapes", "plus", "chatbubble-sharp", "notifications"];
+import * as Navigator from "../../navigation/root";
 
 type BottomNavButtonType = {
     title?: string,
+    navTo?: "HomeScreen" | "MyPostsScreen",
     children: React.ReactNode,
     isMain?: boolean,
     onPress?: ((event: GestureResponderEvent) => void) | undefined,
@@ -20,6 +20,7 @@ type BottomNavButtonType = {
 }
 
 function BottomNavButton({ title, children, isMain, onPress, useMaterial, iconName, itemColor, selected }: BottomNavButtonType) {
+
     return (
         <TouchableOpacity onPress={onPress} style={isMain ? styles.mainBottomNavButton 
         : [styles.bottomNavItem
@@ -31,19 +32,18 @@ function BottomNavButton({ title, children, isMain, onPress, useMaterial, iconNa
                     <MIcon.default size={30} color={!isMain ? itemColor : colors.primaryRed} name={iconName} /> :
                     <IIcon.default size={30} color={!isMain ? itemColor : colors.primaryRed} name={iconName} />)
             }
-            {title && !isMain && <Text style={{ color: selected ? colors.secondaryGreen : colors.primaryGray, fontFamily: "shiromeda", fontSize: 12 }}>{title}</Text>}
+            {title && !isMain && <Text style={{ color: selected ? colors.primaryLight : colors.primaryGray, fontFamily: "shiromeda", fontSize: 12 }}>{title}</Text>}
         </TouchableOpacity>
     )
 }
 
 export default function BottomNavigation() {
-
     const [selectedTab, setSelectedTab] = useState<number>(0);
 
     return (
         <View style={{
             height: 70,
-            bottom: 115,
+            // bottom: 115,
             width: "100%",
             display: "flex",
             flexDirection: "row",
@@ -60,7 +60,10 @@ export default function BottomNavigation() {
                         key={navMenu.title}
                         title={navMenu.title}
                         isMain={!navMenu.title}
-                        onPress={() => setSelectedTab(idx)}
+                        onPress={() => {
+                            Navigator.replace(navMenu.navTo);
+                            setSelectedTab(idx)}
+                        }
                         useMaterial={[1, 2].includes(idx)}
                         iconName={navMenu.icon}
                         itemColor={selectedTab == idx ? colors.primaryLight : colors.primaryGray}
