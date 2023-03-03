@@ -16,15 +16,43 @@ type BottomNavButtonType = {
     useMaterial?: boolean,
     iconName?: string,
     itemColor?: string,
-    selected: boolean
+    selected: boolean,
+    badge?: string
 }
 
-function BottomNavButton({ title, children, isMain, onPress, useMaterial, iconName, itemColor, selected }: BottomNavButtonType) {
+function BottomNavButton({
+    title,
+    isMain,
+    onPress,
+    useMaterial,
+    iconName,
+    itemColor,
+    selected,
+    badge
+ }: BottomNavButtonType) {
 
     return (
         <TouchableOpacity
             onPress={onPress}
             style={isMain ? styles.mainBottomNavButton : styles.bottomNavItem}>
+            {badge &&
+                <View style={
+                    {
+                        right: 0,
+                        top: 0,
+                        height: 15,
+                        width: 15,
+                        borderRadius: 100,
+                        backgroundColor: "red",
+                        position: "absolute",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        zIndex: 1
+                    }}>
+                    <Text style={{ fontSize: 7, fontWeight: "bold", color: colors.primaryLight }}>{badge}</Text>
+                </View>
+            }
             {iconName && (useMaterial ?
                 <MIcon.default size={30} color={!isMain ? itemColor : colors.primaryLight} name={iconName} /> :
                 <IIcon.default size={30} color={!isMain ? itemColor : colors.primaryLight} name={iconName} />)
@@ -67,6 +95,7 @@ export default function BottomNavigation() {
                         }
                         }
                         useMaterial={[0, 2, 3].includes(idx)}
+                        badge={idx == 1 ? "100" : (idx === 4 ? "40" : undefined)}
                         iconName={navMenu.icon}
                         itemColor={selectedTab == idx ? colors.primaryBlue : colors.secondaryDark}
                         selected={selectedTab == idx}>
