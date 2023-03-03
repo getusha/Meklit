@@ -22,15 +22,12 @@ type BottomNavButtonType = {
 function BottomNavButton({ title, children, isMain, onPress, useMaterial, iconName, itemColor, selected }: BottomNavButtonType) {
 
     return (
-        <TouchableOpacity onPress={onPress} style={isMain ? styles.mainBottomNavButton 
-        : [styles.bottomNavItem
-            // {borderBottomColor: "white", borderBottomWidth: 3, borderRadius: 4} : undefined
-        
-        ]
-        }>
+        <TouchableOpacity
+            onPress={onPress}
+            style={isMain ? styles.mainBottomNavButton : styles.bottomNavItem}>
             {iconName && (useMaterial ?
-                    <MIcon.default size={30} color={!isMain ? itemColor : colors.primaryRed} name={iconName} /> :
-                    <IIcon.default size={30} color={!isMain ? itemColor : colors.primaryRed} name={iconName} />)
+                <MIcon.default size={30} color={!isMain ? itemColor : colors.primaryRed} name={iconName} /> :
+                <IIcon.default size={30} color={!isMain ? itemColor : colors.primaryRed} name={iconName} />)
             }
             {title && !isMain && <Text style={{ color: selected ? colors.primaryLight : colors.primaryGray, fontFamily: "shiromeda", fontSize: 12 }}>{title}</Text>}
         </TouchableOpacity>
@@ -54,21 +51,22 @@ export default function BottomNavigation() {
             backgroundColor: colors.primaryBlue
         }}>
 
-            {NAV_MENUS.map((navMenu, idx)=>{
-                return(
+            {NAV_MENUS.map((navMenu, idx) => {
+                return (
                     <BottomNavButton
                         key={navMenu.title}
                         title={navMenu.title}
                         isMain={!navMenu.title}
                         onPress={() => {
                             Navigator.replace(navMenu.navTo);
-                            setSelectedTab(idx)}
+                            setSelectedTab(idx)
+                        }
                         }
                         useMaterial={[1, 2].includes(idx)}
                         iconName={navMenu.icon}
                         itemColor={selectedTab == idx ? colors.primaryLight : colors.primaryGray}
                         selected={selectedTab == idx}>
-                   
+
                     </BottomNavButton>
                 )
             })}
