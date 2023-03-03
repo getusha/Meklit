@@ -67,8 +67,8 @@ export default function BottomNavigation() {
                         useMaterial={[1, 2].includes(idx)}
                         iconName={navMenu.icon}
                         itemColor={selectedTab == idx ? colors.primaryLight : colors.primaryGray}
-                        selected={selectedTab == idx}
-                    >
+                        selected={selectedTab == idx}>
+                   
                     </BottomNavButton>
                 )
             })}
@@ -84,7 +84,7 @@ export default function BottomNavigation() {
                         iconName={BOTTOM_NAV_CHILDS[idx]}
                         itemColor={selectedTab == idx ? colors.primaryLight : colors.primaryGray}
                         selected={selectedTab == idx}
-                    >
+                   :
                     </BottomNavButton>
                 )
             })} */}
