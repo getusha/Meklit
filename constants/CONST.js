@@ -6,7 +6,7 @@ const NAV_MENUS = [
     },
     {
         title: "መልዕክት",
-        icon: "chatbubble-sharp",
+        icon: "ios-chatbox",
         navTo: "HomeScreen"
     },
 
