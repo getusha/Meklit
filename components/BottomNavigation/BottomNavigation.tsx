@@ -26,10 +26,10 @@ function BottomNavButton({ title, children, isMain, onPress, useMaterial, iconNa
             onPress={onPress}
             style={isMain ? styles.mainBottomNavButton : styles.bottomNavItem}>
             {iconName && (useMaterial ?
-                <MIcon.default size={30} color={!isMain ? itemColor : colors.primaryRed} name={iconName} /> :
-                <IIcon.default size={30} color={!isMain ? itemColor : colors.primaryRed} name={iconName} />)
+                <MIcon.default size={30} color={!isMain ? itemColor : colors.primaryLight} name={iconName} /> :
+                <IIcon.default size={30} color={!isMain ? itemColor : colors.primaryLight} name={iconName} />)
             }
-            {title && !isMain && <Text style={{ color: selected ? colors.primaryLight : colors.primaryGray, fontFamily: "shiromeda", fontSize: 12 }}>{title}</Text>}
+            {title && !isMain && <Text style={{ color: selected ? colors.primaryBlue : colors.primaryDark, fontFamily: "shiromeda", fontSize: 12 }}>{title}</Text>}
         </TouchableOpacity>
     )
 }
@@ -48,7 +48,12 @@ export default function BottomNavigation() {
             paddingVertical: 8,
             justifyContent: "space-between",
             alignItems: "center",
-            backgroundColor: colors.primaryBlue
+            backgroundColor: colors.primaryLight,
+            borderTopColor: colors.primaryGray,
+            borderWidth: 2,
+            borderBottomWidth: 0,
+            borderLeftWidth: 0,
+            borderRightWidth: 0
         }}>
 
             {NAV_MENUS.map((navMenu, idx) => {
@@ -62,9 +67,9 @@ export default function BottomNavigation() {
                             setSelectedTab(idx)
                         }
                         }
-                        useMaterial={[1, 2].includes(idx)}
+                        useMaterial={[0, 2, 3].includes(idx)}
                         iconName={navMenu.icon}
-                        itemColor={selectedTab == idx ? colors.primaryLight : colors.primaryGray}
+                        itemColor={selectedTab == idx ? colors.primaryBlue : colors.secondaryDark}
                         selected={selectedTab == idx}>
 
                     </BottomNavButton>
@@ -100,8 +105,8 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         margin: 10,
         minWidth: 55,
-        borderRadius: 10,
-        backgroundColor: colors.primaryLight
+        borderRadius: 100,
+        backgroundColor: colors.primaryRed,
     },
 
     bottomNavItem: {

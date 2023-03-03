@@ -1,23 +1,25 @@
 const NAV_MENUS = [
     {
         title: "መክሊት",
-        icon: "ios-home-sharp",
-        navTo: "HomeScreen"
-    },
-    {
-        title: "እቃዎቼ",
-        icon: "lightbulb-group",
-        navTo: "PostsScreen"
-    },
-    {
-        title: "",
-        icon: "plus",
+        icon: "view-dashboard",
         navTo: "HomeScreen"
     },
     {
         title: "መልዕክት",
         icon: "chatbubble-sharp",
         navTo: "HomeScreen"
+    },
+
+    {
+        title: "",
+        icon: "plus",
+        navTo: "HomeScreen"
+    },
+
+    {
+        title: "እቃዎቼ",
+        icon: "format-list-text",
+        navTo: "PostsScreen"
     },
     {
         title: "አሰሚ",
