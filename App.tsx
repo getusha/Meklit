@@ -9,7 +9,7 @@ import SplashScreen from "react-native-splash-screen";
 import Icon from "react-native-vector-icons/Ionicons";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import MyPostsScreen from "./screens/MyPostsScreen";
+import PostsScreen from "./screens/PostsScreen";
 import { navigationRef } from "./navigation/root";
 import BottomNavigation from "./components/BottomNavigation/BottomNavigation";
 import HeaderTitle from "./components/HeaderTitle";
@@ -38,7 +38,7 @@ function App(): JSX.Element {
           headerShown: false, animation: "fade"
         }}>
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
-          <Stack.Screen name="MyPostsScreen" component={MyPostsScreen} />
+          <Stack.Screen name="PostsScreen" component={PostsScreen} />
         </Stack.Navigator>
         <BottomNavigation />
       </ApplicationProvider>

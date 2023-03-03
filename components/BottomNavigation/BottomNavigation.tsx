@@ -9,7 +9,7 @@ import * as Navigator from "../../navigation/root";
 
 type BottomNavButtonType = {
     title?: string,
-    navTo?: "HomeScreen" | "MyPostsScreen",
+    navTo?: "HomeScreen" | "PostsScreen",
     children: React.ReactNode,
     isMain?: boolean,
     onPress?: ((event: GestureResponderEvent) => void) | undefined,

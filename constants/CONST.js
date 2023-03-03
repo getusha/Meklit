@@ -7,7 +7,7 @@ const NAV_MENUS = [
     {
         title: "እቃዎቼ",
         icon: "lightbulb-group",
-        navTo: "MyPostsScreen"
+        navTo: "PostsScreen"
     },
     {
         title: "",
