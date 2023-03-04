@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GestureResponderEvent, Text, TouchableOpacity } from "react-native";
+import { GestureResponderEvent, StyleSheet, Text, TouchableOpacity } from "react-native";
 import * as IIcon from "react-native-vector-icons/Ionicons";
 import colors from "../constants/colors";
 
@@ -30,9 +30,10 @@ export default function ToggleButton(props:
     )
 }
 
-const styles = {
+const styles = StyleSheet.create({
     toggleButtonStyles: {
         marginTop: "auto",
+        paddingHorizontal: 2
     },
 
     toggleButtonTextStyles: {
@@ -42,4 +43,4 @@ const styles = {
         marginRight: "auto",
         marginBottom: "auto"
     }
-}
+})
