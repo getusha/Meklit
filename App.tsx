@@ -13,6 +13,7 @@ import PostsScreen from "./screens/PostsScreen";
 import { navigationRef } from "./navigation/root";
 import BottomNavigation from "./components/BottomNavigation/BottomNavigation";
 import HeaderTitle from "./components/HeaderTitle";
+import NewPostScreen from "./screens/NewPostScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -24,7 +25,7 @@ function App(): JSX.Element {
   return (
     <NavigationContainer ref={navigationRef}>
       <IconRegistry icons={EvaIconsPack} />
-      <StatusBar backgroundColor={colors.primaryBlue}/>
+      <StatusBar backgroundColor={colors.primaryBlue} />
       <ApplicationProvider
         {...eva} theme={eva.light}
       >
@@ -34,11 +35,15 @@ function App(): JSX.Element {
           accessoryLeft={<HeaderTitle />}
           accessoryRight={<Icon size={20} color={colors.primaryLight} name="settings-sharp" />}
         />
-        <Stack.Navigator screenOptions={{
-          headerShown: false, animation: "fade"
-        }}>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false,
+            animation: "simple_push"
+          }}
+        >
           <Stack.Screen name="HomeScreen" component={HomeScreen} />
           <Stack.Screen name="PostsScreen" component={PostsScreen} />
+          <Stack.Screen name="NewPostScreen" component={NewPostScreen} />
         </Stack.Navigator>
         <BottomNavigation />
       </ApplicationProvider>
