@@ -20,14 +20,16 @@ const filterList: listType[] = [
         id: 0,
         title: "የሚበላ",
         icon: "ios-fast-food",
-        color: colors.primaryYellow
+        color: colors.primaryYellow,
+        materialIcon: false
     },
 
     {
         id: 1,
         title: "ልብስ",
         icon: "shirt-sharp",
-        color: colors.primaryRed
+        color: colors.primaryRed,
+        materialIcon: false
     },
 
     {
@@ -35,7 +37,7 @@ const filterList: listType[] = [
         title: "ጫማ",
         icon: "shoe-sneaker",
         color: colors.secondaryPurple,
-        materialIcon: true
+        materialIcon: true,
     },
 
     {
@@ -50,7 +52,8 @@ const filterList: listType[] = [
         id: 4,
         title: "ጌጣጌጥ",
         icon: "md-gift",
-        color: colors.primaryYellow
+        color: colors.primaryYellow,
+        materialIcon: false
     },
 ]
 
