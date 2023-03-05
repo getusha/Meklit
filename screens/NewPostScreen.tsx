@@ -172,7 +172,8 @@ export default function NewPostScreen() {
             </TouchableOpacity>
 
             <TouchableOpacity onPress={handlePostSubmission} style={styles.pickerMenuItem}>
-                <Text>ዕቃውን ለመልቀቅ</Text>
+                <Icon name="megaphone-outline" size={18} color={colors.secondaryLight} />
+                <Text style={styles.postButton}>ዕቃውን ለመልቀቅ</Text>
             </TouchableOpacity>
         </View>
     )
@@ -182,6 +183,7 @@ const styles = StyleSheet.create({
     pickerMenuItem: {
         width: "auto",
         display: "flex",
+        flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
         height: 50,
@@ -189,6 +191,12 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         backgroundColor: colors.primaryBlue,
         marginTop: "auto"
+    },
+
+    postButton: {
+        color: colors.secondaryLight,
+        fontFamily: "shiromeda",
+        marginHorizontal: 10
     },
 
     launchPickerMenuBtn: {
