@@ -3,13 +3,28 @@ import { NativeSyntheticEvent, StyleSheet } from "react-native";
 import { View, Text, TouchableOpacity, Modal } from "react-native";
 import colors from "../constants/colors";
 import Icon from "react-native-vector-icons/Ionicons";
+import * as ImagePicker from "react-native-image-picker";
 
 type AttachmentPickerTypes = {
     showPickerMenu: boolean,
     togglePickerMenu: (event: NativeSyntheticEvent<any>) => void
 }
 
+
 export default function AttachmentPicker(props: AttachmentPickerTypes) {
+    
+    function handleLaunchCamera() {
+        ImagePicker.launchCamera({ mediaType: "photo" }, () => {
+            //TODO: we can get the callback from a prop
+        })
+    }
+
+    function handleOpenImageLibrary() {
+        ImagePicker.launchImageLibrary({ mediaType: "photo" }, () => {
+            //TODO: we can get the callback from a prop
+        })
+    }
+
     return (
         <View>
             <Modal
@@ -35,12 +50,13 @@ export default function AttachmentPicker(props: AttachmentPickerTypes) {
                         marginTop: "auto",
                         backgroundColor: colors.primaryLight
                     }}>
-                    <TouchableOpacity style={styles.pickerMenuItem}>
+
+                    <TouchableOpacity onPress={handleLaunchCamera} style={styles.pickerMenuItem}>
                         <Icon name="camera" size={18} color={colors.secondaryLight} />
                         <Text style={styles.pickerMenuItemText}>የዕቃውን ፎቶ ለማንሳት</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.pickerMenuItem}>
+                    <TouchableOpacity onPress={handleOpenImageLibrary} style={styles.pickerMenuItem}>
                         <Icon name="ios-file-tray" size={18} color={colors.secondaryLight} />
                         <Text style={styles.pickerMenuItemText}>ነባር ፎቶ ለመፈለግ</Text>
                     </TouchableOpacity>
