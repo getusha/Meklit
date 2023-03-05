@@ -1,13 +1,9 @@
-import { ButtonGroup, Layout } from "@ui-kitten/components";
+import { Layout } from "@ui-kitten/components";
 import React, { useState } from "react";
-import { Image, ImageURISource, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-// import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { Icon } from "@ui-kitten/components";
-import * as IIcon from "react-native-vector-icons/Ionicons";
+import { Image, StyleSheet, Text, View } from "react-native";
 import colors from "../constants/colors";
 import Badge from "../UI/Badge";
 import User from "./User";
-import meklit from "../assets/images/meklit.png";
 import Button from "../UI/Button";
 import ToggleButton from "../UI/ToggleButton";
 
@@ -32,7 +28,12 @@ export default function ItemPost({ item, user }: ItemPostPropTypes) {
         <React.Fragment>
             <Layout style={styles.itemContainerCard}>
                 <Layout style={styles.itemContainerLayout}>
-                    <View style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+                    <View style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignItems: "center",
+                        justifyContent: "space-between"
+                    }}>
                         <User userAvatar={user.avatar} userName={user.name} />
                         <Badge icon="car" theme="notheme" title={"የሚሸጥ"} />
                     </View>
@@ -50,9 +51,18 @@ export default function ItemPost({ item, user }: ItemPostPropTypes) {
                         <Text style={styles.itemTitleText}>{item.title}</Text>
                     </View>
 
-                    <Layout style={{ display: "flex", flexDirection: "row", alignContent: "space-between", marginTop: 20 }}>
-                        {/* <ButtonGroup appearance="filled" size="medium" style={{ display: "flex", justifyContent: "space-between", marginTop: 10, width: "100%" }}> */}
-                        <View style={{ width: "100%", display: "flex", flexDirection: "row", justifyContent: "space-between" }}>
+                    <Layout style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        alignContent: "space-between",
+                        marginTop: 20
+                    }}>
+                        <View style={{
+                            width: "100%",
+                            display: "flex",
+                            flexDirection: "row",
+                            justifyContent: "space-between"
+                        }}>
 
                             <ToggleButton
                                 title="112"
@@ -80,7 +90,6 @@ export default function ItemPost({ item, user }: ItemPostPropTypes) {
 
                             <Button title="እንቀያየር" />
                         </View>
-                        {/* </ButtonGroup> */}
                     </Layout>
                 </Layout>
             </Layout>
@@ -91,9 +100,7 @@ export default function ItemPost({ item, user }: ItemPostPropTypes) {
 
 const styles = StyleSheet.create({
     itemTitleText: {
-        // fontFamily: "shiromeda",
         fontSize: 16,
-        // letterSpacing: -1,
         color: colors.primaryDark
     },
 
