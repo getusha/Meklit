@@ -2,6 +2,7 @@
 import { NativeSyntheticEvent, StyleSheet } from "react-native";
 import { View, Text, TouchableOpacity, Modal } from "react-native";
 import colors from "../constants/colors";
+import Icon from "react-native-vector-icons/Ionicons";
 
 type AttachmentPickerTypes = {
     showPickerMenu: boolean,
@@ -35,10 +36,12 @@ export default function AttachmentPicker(props: AttachmentPickerTypes) {
                         backgroundColor: colors.primaryLight
                     }}>
                     <TouchableOpacity style={styles.pickerMenuItem}>
+                        <Icon name="camera" size={18} color={colors.secondaryLight} />
                         <Text style={styles.pickerMenuItemText}>የዕቃውን ፎቶ ለማንሳት</Text>
                     </TouchableOpacity>
 
                     <TouchableOpacity style={styles.pickerMenuItem}>
+                        <Icon name="ios-file-tray" size={18} color={colors.secondaryLight} />
                         <Text style={styles.pickerMenuItemText}>ነባር ፎቶ ለመፈለግ</Text>
                     </TouchableOpacity>
                 </View>
@@ -52,6 +55,7 @@ const styles = StyleSheet.create({
     pickerMenuItem: {
         width: "auto",
         display: "flex",
+        flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
         height: 50,
@@ -61,6 +65,7 @@ const styles = StyleSheet.create({
     },
     pickerMenuItemText: {
         color: colors.secondaryLight,
-        fontFamily: "adwa"
+        fontFamily: "adwa",
+        marginHorizontal: 10
     }
 })
