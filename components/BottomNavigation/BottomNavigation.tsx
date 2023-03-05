@@ -67,7 +67,7 @@ export default function BottomNavigation() {
 
     return (
         <View style={{
-            height: 70,
+            height: 73.5,
             width: "100%",
             display: "flex",
             flexDirection: "row",
