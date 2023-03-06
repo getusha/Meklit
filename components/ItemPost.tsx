@@ -24,6 +24,16 @@ export default function ItemPost({ item, user }: ItemPostPropTypes) {
     const [likedPost, setLikedPost] = useState<boolean>(false);
     const [disLikedPost, setDisLikedPost] = useState<boolean>(false);
 
+    function handleLikeReaction() {
+        setDisLikedPost(false)
+        setLikedPost(!likedPost)
+    }
+
+    function handleDislikeReaction() {
+        setLikedPost(false)
+        setDisLikedPost(!disLikedPost)
+    }
+
     return (
         <React.Fragment>
             <Layout style={styles.itemContainerCard}>
@@ -114,7 +124,8 @@ const styles = StyleSheet.create({
     },
 
     itemContainerLayout: {
-        flex: 1, flexDirection: "column"
+        flex: 1,
+        flexDirection: "column"
     },
 
     itemImageContainer: {
