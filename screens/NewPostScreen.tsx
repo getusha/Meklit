@@ -74,6 +74,9 @@ export default function NewPostScreen() {
             <AttachmentPicker
                 showPickerMenu={pickerVisibilty}
                 togglePickerMenu={_toggleAttachmentPicker}
+                onAttachmentPicked={() => {
+                    // Do something here
+                }}
             />
 
             <Input
