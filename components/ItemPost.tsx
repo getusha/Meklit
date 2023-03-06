@@ -24,14 +24,14 @@ export default function ItemPost({ item, user }: ItemPostPropTypes) {
     const [likedPost, setLikedPost] = useState<boolean>(false);
     const [disLikedPost, setDisLikedPost] = useState<boolean>(false);
 
-    function handleLikeReaction() {
-        setDisLikedPost(false)
-        setLikedPost(!likedPost)
-    }
-
-    function handleDislikeReaction() {
-        setLikedPost(false)
-        setDisLikedPost(!disLikedPost)
+    function handleReaction(positive: boolean = true) {
+        if (positive) {
+            setDisLikedPost(false)
+            setLikedPost(!likedPost)
+        } else {
+            setLikedPost(false);
+            setDisLikedPost(!disLikedPost)
+        }
     }
 
     return (
@@ -80,10 +80,7 @@ export default function ItemPost({ item, user }: ItemPostPropTypes) {
                                 successColor={colors.primaryRed}
                                 successIcon="heart"
                                 turnedOn={likedPost}
-                                onPress={() => {
-                                    setDisLikedPost(false)
-                                    setLikedPost(!likedPost)
-                                }}
+                                onPress={() => handleReaction()}
                             />
 
                             <ToggleButton
@@ -92,10 +89,7 @@ export default function ItemPost({ item, user }: ItemPostPropTypes) {
                                 successColor={colors.primaryBlue}
                                 successIcon="ios-thumbs-down-sharp"
                                 turnedOn={disLikedPost}
-                                onPress={() => {
-                                    setLikedPost(false)
-                                    setDisLikedPost(!disLikedPost)
-                                }}
+                                onPress={() => handleReaction(false)}
                             />
 
                             <Button title="እንቀያየር" />
