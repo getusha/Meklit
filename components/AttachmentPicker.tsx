@@ -7,16 +7,16 @@ import * as ImagePicker from "react-native-image-picker";
 
 type AttachmentPickerTypes = {
     showPickerMenu: boolean,
-    togglePickerMenu: (event: NativeSyntheticEvent<any>) => void
+    togglePickerMenu: (event: NativeSyntheticEvent<any>) => void,
+    onAttachmentPicked: () => void,
 }
 
 
 export default function AttachmentPicker(props: AttachmentPickerTypes) {
-    
+
     function handleLaunchCamera() {
-        ImagePicker.launchCamera({ mediaType: "photo" }, () => {
-            //TODO: we can get the callback from a prop
-        })
+        ImagePicker.launchCamera({ mediaType: "photo" },
+            props.onAttachmentPicked);
     }
 
     function handleOpenImageLibrary() {
