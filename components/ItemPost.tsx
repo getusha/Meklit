@@ -26,11 +26,11 @@ export default function ItemPost({ item, user }: ItemPostPropTypes) {
 
     function handleReaction(positive: boolean = true) {
         if (positive) {
-            setDisLikedPost(false)
-            setLikedPost(!likedPost)
+            setDisLikedPost(false);
+            setLikedPost(!likedPost);
         } else {
             setLikedPost(false);
-            setDisLikedPost(!disLikedPost)
+            setDisLikedPost(!disLikedPost);
         }
     }
 
