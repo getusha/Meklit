@@ -20,9 +20,8 @@ export default function AttachmentPicker(props: AttachmentPickerTypes) {
     }
 
     function handleOpenImageLibrary() {
-        ImagePicker.launchImageLibrary({ mediaType: "photo" }, () => {
-            //TODO: we can get the callback from a prop
-        })
+        ImagePicker.launchImageLibrary({ mediaType: "photo" },
+            props.onAttachmentPicked);
     }
 
     return (
