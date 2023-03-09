@@ -15,7 +15,6 @@ export default function Badge(props: BadgePropTypes) {
     const isYellowTheme = props.theme === "yellow";
     const isDefaultTheme = props.theme === "notheme";
 
-
     return (
         <View style={
             [styles.badge,
@@ -35,16 +34,16 @@ export default function Badge(props: BadgePropTypes) {
 const styles = StyleSheet.create({
     badge: {
         padding: 5,
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        flexWrap: "wrap",
-        borderRadius: 5,
-        marginHorizontal: 3,
         fontSize: 12,
         minWidth: 50,
-        textAlign: "center",
         marginTop: 10,
+        borderRadius: 5,
+        marginHorizontal: 3,
+        display: "flex",
+        flexWrap: "wrap",
+        flexDirection: "row",
+        alignItems: "center",
+        textAlign: "center",
         justifyContent: "space-between"
     },
 
