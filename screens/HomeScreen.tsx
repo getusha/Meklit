@@ -5,7 +5,6 @@ import colors from "../constants/colors";
 import FilterSelector from "../components/FilterSelector";
 import ItemPost from "../components/ItemPost";
 import items from "../constants/items";
-import SkeletonContent from "react-native-skeleton-content";
 
 export default function HomeScreen(): JSX.Element {
   const [render, setRender] = useState<boolean>(false);
