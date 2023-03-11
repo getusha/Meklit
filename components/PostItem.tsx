@@ -1,7 +1,9 @@
+import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import colors from "../constants/colors";
 import Button from "../UI/Button";
 import Icon from "react-native-vector-icons/Ionicons";
+import FastImage from "react-native-fast-image";
 
 type PostItemTypes = {
     title: string;
@@ -46,7 +48,7 @@ export default function PostItem(props: PostItemTypes) {
         <View style={styles.postItemContainer}>
             <View style={styles.postItemDetails}>
                 <View style={styles.postItemImageContainer}>
-                    <Image
+                    <FastImage
                         style={styles.postItemImage}
                         source={{ uri: props.imageUri }}
                     />
