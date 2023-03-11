@@ -1,6 +1,7 @@
 import { Layout } from "@ui-kitten/components";
 import React, { useState } from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import FastImage from "react-native-fast-image";
 import colors from "../constants/colors";
 import Badge from "../UI/Badge";
 import User from "./User";
@@ -49,7 +50,7 @@ export default function ItemPost({ item, user }: ItemPostPropTypes) {
                     </View>
 
                     <Layout style={styles.itemImageContainer}>
-                        <Image style={styles.itemImage} source={{ uri: item.image }} />
+                        <FastImage resizeMode="contain" style={styles.itemImage} source={{ uri: item.image }} />
                     </Layout>
 
                     <View style={styles.badgeContainer}>
